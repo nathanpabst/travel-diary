@@ -36,9 +36,9 @@ const cardMaker = (destinationsArray) => {
     destinationsArray.forEach((destinations) => {
         domString += `<div class="card">`;
         domString += `<h1>${destinations.location}</h1>`;
-        domString += `<h3>${destinations.description}</h3>`;
         domString += `<img class="image" src="${destinations.image}" alt="">`;
-        domString += `<input type="text" class="input" placeholder="type your text here"><br>`
+        domString += `<h3>${destinations.description}</h3>`;
+        domString += `<input type="text" class="input" placeholder="tell your story here"><br>`
         domString += `<button class="card-button">Submit</button>`;
         domString += `</div>`;
     });
