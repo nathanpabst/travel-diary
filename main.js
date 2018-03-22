@@ -1,6 +1,6 @@
 const destinations = [
     {
-        location: "Switzerland"
+        location: "Switzerland",
         image: "https://cloudfront.traillink.com/photos/fowler-trail_137668_sc.jpg",
         description: "Switzerland trail",
     },
@@ -21,7 +21,36 @@ const destinations = [
     },
     {
         location: "China",
-        image: "https://robohash.org/inciduntsapientetenetur.png?size=100x100&set=set1",
+        image: "https://www.telegraph.co.uk/content/dam/Travel/leadAssets/28/00/wall4_2800060a.jpg?imwidth=450",
         description: "The Great Wall of China",
     }
 ];
+
+const printToDom = (domString, divId) => {
+    const printTo = document.getElementById(divId);
+    printTo.innerHTML = domString;
+};
+
+const cardMaker = (destinationsArray) => {
+    let domString = '';
+    destinationsArray.forEach((destinations) => {
+        domString += `<div class="card">`;
+        domString += `<h1>${destinations.location}</h1>`;
+        domString += `<h3>${destinations.description}</h3>`;
+        domString += `<img class="image" src="${destinations.image}" alt="">`;
+        domString += `<input type="text" class="input" placeholder="type your text here"><br>`
+        domString += `<button class="card-button">Submit</button>`;
+        domString += `</div>`;
+    });
+    printToDom(domString, 'card-holder');
+}
+
+cardMaker(destinations);
+
+// const allTheButtons = document.getElementsByClassName('card-button');
+
+// for (let i = 0; i < allTheButtons.length; i++) {
+//     allTheButtons[i].addEventListener('click', (e) => {
+//         console.log('event!!!!!!!!', e);
+//     });
+// }
