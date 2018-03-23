@@ -47,7 +47,7 @@ const cardMaker = (destinationsArray) => {
 
 cardMaker(destinations);
 
-// const allTheButtons = document.getElementsByClassName('card-button');
+// const allTheButtons = document.getElementsById('diary-holder');
 
 // for (let i = 0; i < allTheButtons.length; i++) {
 //     allTheButtons[i].addEventListener('click', (e) => {
