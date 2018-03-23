@@ -38,8 +38,8 @@ const cardMaker = (destinationsArray) => {
         domString += `<h1>${destinations.location}</h1>`;
         domString += `<img class="image" src="${destinations.image}" alt="">`;
         domString += `<h3>${destinations.description}</h3>`;
-        domString += `<input type="text" class="input" placeholder="tell your story here"><br>`
-        domString += `<button class="card-button">Submit</button>`;
+        domString += `<textarea class="input" placeholder="tell your story here" rows="4" columns="30"></textarea><br>`
+        domString += `<button class="card-button">Post</button>`;
         domString += `</div>`;
     });
     printToDom(domString, 'card-holder');

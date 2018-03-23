@@ -1,3 +1,6 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
 .image {
     width: 65%;
     height: 40%;
@@ -19,4 +22,13 @@
 
 .card-button {
     margin: 0 auto;
+    width: 35%;
+    background-color: green;
+    height: 10%;
+    color: white;
+    font-size: 1.2em;
+}
+
+.input {
+    width: 70%;
 }
