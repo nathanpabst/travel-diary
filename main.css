@@ -17,6 +17,7 @@ body {
     padding: 2%;
     width: 25%;
     border: 2px solid slategray;
+    background-color: skyblue;
     text-align: center;
 }
 
@@ -29,6 +30,9 @@ body {
     font-size: 1.2em;
 }
 
+a:hover {
+    color: lightskyblue;
+}
 .input {
     width: 70%;
 }
