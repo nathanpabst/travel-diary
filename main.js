@@ -44,13 +44,33 @@ const cardMaker = (destinationsArray) => {
     });
     printToDom(domString, 'card-holder');
 }
-
 cardMaker(destinations);
 
-// const allTheButtons = document.getElementsById('diary-holder');
-
-// for (let i = 0; i < allTheButtons.length; i++) {
-//     allTheButtons[i].addEventListener('click', (e) => {
-//         console.log('event!!!!!!!!', e);
+// const diaryMaker = () => {
+//     let entry = '';
+//     diariesArray.forEach((entry) => {
+//         domString += `<div class="entry">`;
+//         domString += `<h1>${destinations.location}</h1>`;
+//         domString += `<textarea class="input" placeholder="tell your story here" rows="4" columns="30"></textarea><br>`
+//         domString += `</div>`;
 //     });
-// }
+//     printToDom(domString, 'diary-holder');
+
+const addAllEventListeners = () => {
+    const allTheButtons = document.getElementsByClassName('card-button');
+
+    for (let i = 0; i < allTheButtons.length; i++) {
+        allTheButtons[i].addEventListener('click', moveToDiary); 
+    }
+};
+const moveToDiary = (e) => {
+    const nameOfDestination = e.target.parentNode.children[0];
+    nameOfDestination.classList.add('location');
+};
+
+const startApplication = () => {
+    buildDomString(destinations);
+    addAllEventListeners();
+};
+
+startApplication();
