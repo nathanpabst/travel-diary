@@ -36,3 +36,14 @@ a:hover {
 .input {
     width: 70%;
 }
+.output {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px auto;
+    padding: 2%;
+    width: 70%;
+    border: 2px solid slategray;
+    background-color: rgba(232, 240, 243, 0.69);
+}
+
