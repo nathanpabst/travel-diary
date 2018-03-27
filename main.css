@@ -1,0 +1,49 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+.image {
+    width: 65%;
+    height: 40%;
+    margin: 0 auto;
+}
+#card-holder {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    margin: 1%;
+    padding: 2%;
+    width: 25%;
+    border: 2px solid slategray;
+    background-color: skyblue;
+    text-align: center;
+}
+
+.card-button {
+    margin: 0 auto;
+    width: 35%;
+    background-color: green;
+    height: 10%;
+    color: white;
+    font-size: 1.2em;
+}
+
+a:hover {
+    color: lightskyblue;
+}
+.input {
+    width: 70%;
+}
+.output {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px auto;
+    padding: 2%;
+    width: 70%;
+    border: 2px solid slategray;
+    background-color: rgba(232, 240, 243, 0.69);
+}
+
