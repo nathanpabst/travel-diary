@@ -34,12 +34,13 @@ const printToDom = (domString, divId) => {
 const cardMaker = (destinationsArray) => {
     let domString = '';
     destinationsArray.forEach((destinations) => {
+        const destinationsId = {destinations.location.replace(' ', '_')}
         domString += `<div class="card">`;
         domString += `<h1>${destinations.location}</h1>`;
         domString += `<img class="image" src="${destinations.image}" alt="">`;
         domString += `<h3>${destinations.description}</h3>`;
         domString += `<textarea class="input" placeholder="tell your story here" rows="4" columns="30"></textarea><br>`;
-        domString += `<button class="card-button">Post</button>`;
+        domString += `<button class="card-button" id="${destinationsId}">Post</button>`;
         domString += `</div>`;
     });
     printToDom(domString, 'card-holder');
@@ -89,27 +90,27 @@ chinaBtn.addEventListener('click', (e) => {
     outputBox.innerHTML = domOutput;
 })
 
-const allTheButtons = document.getElementsByClassName('card-button');
-    for (let i = 0; i < allTheButtons.length; i++) {
-        allTheButtons[i].addEventListener('click', (e) => {
-            const userInput = inputBox.value;
-            let domOutput = '';
-            if (e.target.id === 'switzerland') {
-                domOutput = switzerland[userInput];
-                } else if (e.target.id === 'tahiti') {
-                    domOutput = tahiti[userInput];
-                // } else if (e.target.id === 'new-zealand') { 
-                //     domOutput = new-zealand[userInput];
+// const allTheButtons = document.getElementsByClassName('card-button');
+//     for (let i = 0; i < allTheButtons.length; i++) {
+//         allTheButtons[i].addEventListener('click', (e) => {
+//             const userInput = inputBox.value;
+//             let domOutput = '';
+//             if (e.target.id === 'switzerland') {
+//                 domOutput = switzerland[userInput];
+//                 } else if (e.target.id === 'tahiti') {
+//                     domOutput = tahiti[userInput];
+//                 // } else if (e.target.id === 'new-zealand') { 
+//                 //     domOutput = new-zealand[userInput];
                 
-                } else if (e.target.id === 'peru') {
-                    domOutput = peru[userInput];
-                } else {
-                    domOutput = china[userInput];
-                }
-                outputBox.innerHTML = domOutput;
-            })
-            printToDom(domOutput, 'diary-holder');
-        }
+//                 } else if (e.target.id === 'peru') {
+//                     domOutput = peru[userInput];
+//                 } else {
+//                     domOutput = china[userInput];
+//                 }
+//                 outputBox.innerHTML = domOutput;
+//             })
+//             printToDom(domOutput, 'diary-holder');
+//         }
       
 
 // once the Post button--within a particular card--is clicked, the input/text should move to the corresponding div class below
