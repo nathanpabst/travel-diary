@@ -1,3 +1,4 @@
+//******CREATE AN ARRAY OF OBJECTS*********/
 const destinations = [
     {
         location: "Switzerland",
@@ -26,10 +27,14 @@ const destinations = [
     }
 ];
 
+//****CREATE PrintToDom FUNCTION*****//
+
 const printToDom = (domString, divId) => {
     const printTo = document.getElementById(divId);
     printTo.innerHTML = domString;
 };
+
+//****CREATE CARDS FOR EACH OBJECT AND CALL PrintToDom FUNCTION****//
 
 const cardMaker = (destinationsArray) => {
     let domString = '';
@@ -47,76 +52,33 @@ const cardMaker = (destinationsArray) => {
 };
 cardMaker(destinations);
 
-const inputBox = document.getElementsByClassName('input');
-const switzerlandBtn = document.getElementById('switzerland');
-const tahitiBtn= document.getElementById('tahiti');
-const newZealandBtn = document.getElementById('new-zealand');
-const peruBtn= document.getElementById('peru');
-const chinaBtn= document.getElementById('china');
-const outputBox = document.getElementsByClassName('output');
+//***LOOP THROUGH DESTINATIONS & ASSIGN EVENT LISTENERS TO CARD BUTTONS****/
 
-switzerlandBtn.addEventListener('click', (e) => {
-    console.log("my event", e);
-    const userInput = inputBox.value;
-    let domOutput = switzerland[userInput];
-    outputBox.innerHTML = domOutput;
-})
-
-tahitiBtn.addEventListener('click', (e) => {
-    console.log("my event", e);
-    const userInput = inputBox.value;
-    let domOutput = tahiti[userInput];
-    outputBox.innerHTML = domOutput;
-})
-
-// newZealandBtn.addEventListener('click', (e) => {
-//     console.log("my event", e);
-//     const userInput = inputBox.value;
-//     let domOutput = new-zealand[userInput];
-//     outputBox.innerHTML = domOutput;
-// })
-
-peruBtn.addEventListener('click', (e) => {
-    console.log("my event", e);
-    const userInput = inputBox.value;
-    let domOutput = peru[userInput];
-    outputBox.innerHTML = domOutput;
-})
-
-chinaBtn.addEventListener('click', (e) => {
-    console.log("my event", e);
-    const userInput = inputBox.value;
-    let domOutput = china[userInput];
-    outputBox.innerHTML = domOutput;
-})
-
-// const allTheButtons = document.getElementsByClassName('card-button');
-//     for (let i = 0; i < allTheButtons.length; i++) {
-//         allTheButtons[i].addEventListener('click', (e) => {
-//             const userInput = inputBox.value;
-//             let domOutput = '';
-//             if (e.target.id === 'switzerland') {
-//                 domOutput = switzerland[userInput];
-//                 } else if (e.target.id === 'tahiti') {
-//                     domOutput = tahiti[userInput];
-//                 // } else if (e.target.id === 'new-zealand') { 
-//                 //     domOutput = new-zealand[userInput];
+const allTheButtons = document.getElementById('destinationsId');
+    for (let i = 0; i < allTheButtons.length; i++) {
+        allTheButtons[i].addEventListener('click', (e) => {
+            const userInput = input.value;
+            let domOutput = '';
+            if (e.target.id === 'switzerland') {
+                domOutput = switzerland[userInput];
+                } else if (e.target.id === 'tahiti') {
+                    domOutput = tahiti[userInput];
+                // } else if (e.target.id === 'new-zealand') { 
+                //     domOutput = new-zealand[userInput];
                 
-//                 } else if (e.target.id === 'peru') {
-//                     domOutput = peru[userInput];
-//                 } else {
-//                     domOutput = china[userInput];
-//                 }
-//                 outputBox.innerHTML = domOutput;
-//             })
-//             printToDom(domOutput, 'diary-holder');
-//         }
-      
+                // 
+                } else if (e.target.id === 'peru') {
+                    domOutput = peru[userInput];
+                } else {
+                    domOutput = china[userInput];
+                }
+                outputBox.innerHTML = domOutput;
+            })
+            printToDom(domOutput, 'diary-holder');
+        };
 
-// once the Post button--within a particular card--is clicked, the input/text should move to the corresponding div class below
-// create one div for the locations--'diary-holder'
-// create an ID for each location
-// connect event-listeners targeting the appropriate child of the div
+        // build domString for output?
+      
 // const moveIt = (e) => {
 //     const nameOfDestination = e.target.parentNode.children[0];
 //     nameOfDestination.classList.add('location');
@@ -125,7 +87,6 @@ chinaBtn.addEventListener('click', (e) => {
 
 // const startApplication = () => {
 //     cardMaker(destinations);
-//     addAllEventListeners();
 // };
 
 // startApplication();
