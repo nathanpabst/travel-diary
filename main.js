@@ -34,13 +34,13 @@ const printToDom = (domString, divId) => {
 const cardMaker = (destinationsArray) => {
     let domString = '';
     destinationsArray.forEach((destinations) => {
-        const destinationsId = {destinations.location.replace(' ', '_')}
+        const destinationsId = `${destinations.location.replace(' ', '_')}`;
         domString += `<div class="card">`;
-        domString += `<h1>${destinations.location}</h1>`;
+        domString += `<h2>${destinations.location}</h2>`;
         domString += `<img class="image" src="${destinations.image}" alt="">`;
         domString += `<h3>${destinations.description}</h3>`;
         domString += `<textarea class="input" placeholder="tell your story here" rows="4" columns="30"></textarea><br>`;
-        domString += `<button class="card-button" id="${destinationsId}">Post</button>`;
+        domString += `<button class="card-button" id="destinationsId">Post</button>`;
         domString += `</div>`;
     });
     printToDom(domString, 'card-holder');
