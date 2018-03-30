@@ -1,3 +1,4 @@
+//******CREATE AN ARRAY OF OBJECTS*********/
 const destinations = [
     {
         location: "Switzerland",
@@ -26,106 +27,52 @@ const destinations = [
     }
 ];
 
+//****CREATE PrintToDom FUNCTION*****//
+
 const printToDom = (domString, divId) => {
     const printTo = document.getElementById(divId);
-    printTo.innerHTML = domString;
+    printTo.innerHTML += domString;
 };
+
+//****CREATE CARDS FOR EACH OBJECT AND CALL PrintToDom FUNCTION****//
 
 const cardMaker = (destinationsArray) => {
     let domString = '';
-    destinationsArray.forEach((destinations) => {
-        const destinationsId = `${destinations.location.replace(' ', '_')}`;
+    destinationsArray.forEach((destination) => {
         domString += `<div class="card">`;
-        domString += `<h2>${destinations.location}</h2>`;
-        domString += `<img class="image" src="${destinations.image}" alt="">`;
-        domString += `<h3>${destinations.description}</h3>`;
+        domString += `<h2>${destination.location}</h2>`;
+        domString += `<img class="image" src="${destination.image}" alt="">`;
+        domString += `<h3>${destination.description}</h3>`;
         domString += `<textarea class="input" placeholder="tell your story here" rows="4" columns="30"></textarea><br>`;
-        domString += `<button class="card-button" id="destinationsId">Post</button>`;
+        domString += `<button class="card-button" id="${destination.location}">Post</button>`;
         domString += `</div>`;
     });
     printToDom(domString, 'card-holder');
 };
 cardMaker(destinations);
 
-const inputBox = document.getElementsByClassName('input');
-const switzerlandBtn = document.getElementById('switzerland');
-const tahitiBtn= document.getElementById('tahiti');
-const newZealandBtn = document.getElementById('new-zealand');
-const peruBtn= document.getElementById('peru');
-const chinaBtn= document.getElementById('china');
-const outputBox = document.getElementsByClassName('output');
-
-switzerlandBtn.addEventListener('click', (e) => {
-    console.log("my event", e);
-    const userInput = inputBox.value;
-    let domOutput = switzerland[userInput];
-    outputBox.innerHTML = domOutput;
-})
-
-tahitiBtn.addEventListener('click', (e) => {
-    console.log("my event", e);
-    const userInput = inputBox.value;
-    let domOutput = tahiti[userInput];
-    outputBox.innerHTML = domOutput;
-})
-
-// newZealandBtn.addEventListener('click', (e) => {
-//     console.log("my event", e);
-//     const userInput = inputBox.value;
-//     let domOutput = new-zealand[userInput];
-//     outputBox.innerHTML = domOutput;
-// })
-
-peruBtn.addEventListener('click', (e) => {
-    console.log("my event", e);
-    const userInput = inputBox.value;
-    let domOutput = peru[userInput];
-    outputBox.innerHTML = domOutput;
-})
-
-chinaBtn.addEventListener('click', (e) => {
-    console.log("my event", e);
-    const userInput = inputBox.value;
-    let domOutput = china[userInput];
-    outputBox.innerHTML = domOutput;
-})
-
-// const allTheButtons = document.getElementsByClassName('card-button');
-//     for (let i = 0; i < allTheButtons.length; i++) {
-//         allTheButtons[i].addEventListener('click', (e) => {
-//             const userInput = inputBox.value;
-//             let domOutput = '';
-//             if (e.target.id === 'switzerland') {
-//                 domOutput = switzerland[userInput];
-//                 } else if (e.target.id === 'tahiti') {
-//                     domOutput = tahiti[userInput];
-//                 // } else if (e.target.id === 'new-zealand') { 
-//                 //     domOutput = new-zealand[userInput];
-                
-//                 } else if (e.target.id === 'peru') {
-//                     domOutput = peru[userInput];
-//                 } else {
-//                     domOutput = china[userInput];
-//                 }
-//                 outputBox.innerHTML = domOutput;
-//             })
-//             printToDom(domOutput, 'diary-holder');
-//         }
-      
-
-// once the Post button--within a particular card--is clicked, the input/text should move to the corresponding div class below
-// create one div for the locations--'diary-holder'
-// create an ID for each location
-// connect event-listeners targeting the appropriate child of the div
-// const moveIt = (e) => {
-//     const nameOfDestination = e.target.parentNode.children[0];
-//     nameOfDestination.classList.add('location');
-// };
+//*****CREATE FUNCTION & CLEAR THE INPUT BOX ONCE THE TEXT MOVES INTO THE DIARY SECTION*****/
+const clearInputBox = (input) => {
+    input.value = "";
+};
+//***LOOP THROUGH DESTINATIONS, ASSIGN EVENT LISTENERS TO CARD BUTTONS****/
+const allTheButtons = document.getElementsByClassName('card-button');
+    for (let i = 0; i < allTheButtons.length; i++) {
+        allTheButtons[i].addEventListener('click', (e) => {
+// GATHER INPUT AND ASSIGN IT TO A VARIABLE
+            const userInput = e.target.previousSibling.previousSibling.value;
+            let domOutput = '';
+            domOutput += `<div class="output">`;
+// INLCLUDE DESTINATION NAME AND USER INPUT IN THE OUTPUT BOX
+            domOutput += `<h2>${e.target.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.innerHTML}</h2>`;
+            domOutput += `<p>${userInput}</p>`;
+            domOutput += `</div>`;
+// PRINT RESULTS TO THE DOM & CALL THE clearInputBox FUNCTION            
+            printToDom(domOutput, 'diary-holder');
+            clearInputBox(e.target.previousSibling.previousSibling);            
+        });        
+    };
 
 
-// const startApplication = () => {
-//     cardMaker(destinations);
-//     addAllEventListeners();
-// };
 
-// startApplication();
+        
