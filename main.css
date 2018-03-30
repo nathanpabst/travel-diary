@@ -1,6 +1,13 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: rgb(40, 37, 192);
+    color: white;
 }
+h1 {
+    text-align: center;
+    font-size: 4em;
+}
+
 .image {
     width: 65%;
     height: 40%;
@@ -16,9 +23,12 @@ body {
     margin: 1%;
     padding: 2%;
     width: 25%;
-    border: 2px solid slategray;
-    background-color: skyblue;
+    border: 2px solid white;
+    background-color: rgb(4, 198, 247);
     text-align: center;
+}
+.card h2 {
+    font-size: 1.2em;
 }
 
 .card-button {
@@ -27,7 +37,7 @@ body {
     background-color: green;
     height: 10%;
     color: white;
-    font-size: 1.2em;
+    /* font-size: 25px; */
 }
 
 a:hover {
